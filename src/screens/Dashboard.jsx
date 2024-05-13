@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateOrders, updateProducts } from "../redux/appSlice";
 import axios from "axios";
+import { SERVER_BASE_URL } from "../config";
 
 const Dashboard = () => {
   const { products, orders } = useSelector((state) => state.app);
@@ -17,12 +18,12 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     const { data: productsData } = await axios.get(
-      "http://localhost:5000/product/all"
+      `${SERVER_BASE_URL}/product/all`
     );
     dispatch(updateProducts(productsData?.products));
 
     const { data: ordersData } = await axios.get(
-      "http://localhost:5000/order/all"
+      `${SERVER_BASE_URL}/order/all`
     );
     dispatch(updateOrders(ordersData?.orders));
   };

@@ -16,10 +16,7 @@ const Orders = () => {
   const dispatch = useDispatch();
 
   const updateOrder = async () => {
-    const { data } = await axios.post(
-      "http://localhost:5000/order/update",
-      order
-    );
+    const { data } = await axios.post(`${SERVER_BASE_URL}/order/update`, order);
     dispatch(updateOrders(data?.orders));
     setOpen(false);
   };

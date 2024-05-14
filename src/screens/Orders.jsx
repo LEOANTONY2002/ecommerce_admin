@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateOrders } from "../redux/appSlice";
 import axios from "axios";
+import { SERVER_BASE_URL } from "../config";
 
 const Orders = () => {
   const { orders } = useSelector((state) => state.app);
